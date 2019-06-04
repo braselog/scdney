@@ -19,8 +19,7 @@ Visualising the CI using barplot
 }
 \examples{
 ## Loading example data
-library(scDC)
-data("sim")
+data("sim", package = "scdney")
 
 cellTypes = sim$sim_cellTypes
 subject = sim$sim_subject
