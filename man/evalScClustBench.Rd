@@ -20,8 +20,3 @@ Evaluate cluster results from \emph{scClustBench} with evaluation metrics NMI (N
 \details{
 Evaluate kmeans cluster result from \emph{scClustBench}
 }
-\examples{
-evalScClustBench(sub.simlr, method = "simlr")
-evalScClustBench(sub.result, method = "kmeans")
-
-}

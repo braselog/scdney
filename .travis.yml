@@ -11,3 +11,5 @@ os:
 
 env:
   - R_BIOC_VERSION: "3.9"
+
+warnings_are_errors: false
