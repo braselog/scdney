@@ -2,9 +2,6 @@
 #'
 #' @title scClustBench
 #'
-#' @examples
-#' scClustBench(mat, method = "simlr", similarity = NULL, cores = 1, cores.ratio = 0)
-#' scClustBench(mat, method = "kmeans", similarity = NULL, cores = 1, iter.max = 100, nstart = 25)
 #'
 #' @param mat a (m x n) data matrix of gene expression measurements of individual cells with rows representing genes and columns representing cells. column names of the \emph{mat} must be cell types.
 #' @param nCs number of clusters to be estimated

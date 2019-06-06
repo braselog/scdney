@@ -2,9 +2,6 @@
 #'
 #' @title evalScClustBench
 #'
-#' @examples
-#' evalScClustBench(sub.simlr, method = "simlr")
-#' evalScClustBench(sub.result, method = "kmeans")
 #'
 #' @param sub.result An object returned from \emph{scClustBench}
 #' @param method A method used in \emph{scClustBench}

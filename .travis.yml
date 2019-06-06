@@ -1,0 +1,15 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+cache: packages
+r: bioc-release
+dist: trusty
+
+os:
+  - linux
+  - osx
+
+env:
+  - R_BIOC_VERSION: "3.9"
+
+warnings_are_errors: false

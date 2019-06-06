@@ -2,8 +2,6 @@
 #'
 #' @title scClust
 #'
-#' @examples
-#' scClust(mat = BuettnerFlorian$in_X, c = BuettnerFlorian$n_clust, method = "simlr", similarity = "pearson")
 #'
 #' @param mat a (m x n) data matrix of gene expression measurements of individual cells with rows representing genes and columns representing cells.
 #' @param nCs number of clusters to be estimated

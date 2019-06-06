@@ -40,7 +40,3 @@ For Kmeans, a list with components:
 \description{
 performs clustering on single-cell RNA-seq data.
 }
-\examples{
-scClust(mat = BuettnerFlorian$in_X, c = BuettnerFlorian$n_clust, method = "simlr", similarity = "pearson")
-
-}

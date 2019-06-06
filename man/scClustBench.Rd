@@ -42,8 +42,3 @@ The data \emph{mat} must contain label information as column names to subsample 
 \details{
 Benchmark impact of similarity metric on clustering.
 }
-\examples{
-scClustBench(mat, method = "simlr", similarity = NULL, cores = 1, cores.ratio = 0)
-scClustBench(mat, method = "kmeans", similarity = NULL, cores = 1, iter.max = 100, nstart = 25)
-
-}
