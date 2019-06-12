@@ -51,9 +51,11 @@ library(scdney)
 
 ### scClust
 
+See: Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. ***Briefings in Bioinformatics*** <a href="https://doi.org/10.1093/bib/bby076">[https://doi.org/10.1093/bib/bby076]</a>
+
 ![alt text](./img/scClust.jpg)
 
-Current version of this package is implemented to run SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
+Current version of this package is implemented to run a modified version of SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
 
 Available metrics include:
 
@@ -448,12 +450,4 @@ summary(res_GLM$pool_res_fixed)
 summary(res_GLM$pool_res_random)
 ```
 
-
-
-
-# References
-
-* **scClust**: 
-
-Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. ***Briefings in Bioinformatics*** <a href="https://doi.org/10.1093/bib/bby076">[https://doi.org/10.1093/bib/bby076]</a>
 
