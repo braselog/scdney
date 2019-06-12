@@ -55,7 +55,7 @@ See: Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact
 
 ![alt text](./img/scClust.jpg)
 
-Current version of this package is implemented to run a modified version of SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
+Current version of this package is implemented to run a modified version of `SIMLR` (Wang et al, 2017) or $k$-means clustering methods with various similarity metrics.
 
 Available metrics include:
 
