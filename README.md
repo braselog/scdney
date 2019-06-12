@@ -6,7 +6,6 @@
 <img src="https://github.com/SydneyBioX/scMerge/raw/master/inst/logo.png" align="right" width="200" />
 -->
 
-[![](https://img.shields.io/badge/doi-10.1093/bib/bby076.svg)](https://doi.org/10.1093/bib/bby076)
 [![](https://img.shields.io/github/last-commit/SydneyBioX/scdney.svg)](https://github.com/SydneyBioX/scdney/commits/master)
 
 <br />
