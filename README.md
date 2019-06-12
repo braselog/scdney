@@ -1,5 +1,16 @@
 # scdney - Single cell data integrative analysis
 
+<br />
+
+<!--
+<img src="https://github.com/SydneyBioX/scMerge/raw/master/inst/logo.png" align="right" width="200" />
+-->
+
+[![](https://img.shields.io/badge/doi-10.1093/bib/bby076.svg)](https://doi.org/10.1093/bib/bby076)
+[![](https://img.shields.io/github/last-commit/SydneyBioX/scdney.svg)](https://github.com/SydneyBioX/scdney/commits/master)
+
+<br />
+
 `scdney` is a R package with collection of single cell RNA-sequencing (scRNA-seq) data analysis functions developed by team of <a href = "http://www.maths.usyd.edu.au/u/SMS/bioinformatics/">**Sydney Precision Bioinformatics Research Group**</a> at The University of Sydney.
 
 This package contains useful functions for analysis of scRNA-seq data including clustering, cell type identification, etc.
