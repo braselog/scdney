@@ -13,7 +13,7 @@
 #' @import MAST
 #' @useDynLib scdney projsplx
 #'
-findmarker <- function(mat, cluster, cluster_id){
+findMarker <- function(mat, cluster, cluster_id){
   
   #group 1 is the cluster of interest
   group1 = which(cluster == cluster_id)  
