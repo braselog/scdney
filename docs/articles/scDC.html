@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">scdney</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
       </span>
     </div>
 
@@ -76,7 +76,7 @@
       <h1>scDC: single cell differential composition analysis</h1>
                         <h4 class="author">Yingxin Lin</h4>
             
-            <h4 class="date">2019-04-02</h4>
+            <h4 class="date">2019-06-26</h4>
       
       
       <div class="hidden name"><code>scDC.Rmd</code></div>
@@ -88,119 +88,183 @@
 <div id="package" class="section level1">
 <h1 class="hasAnchor">
 <a href="#package" class="anchor"></a>Package</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(scdney)
-<span class="co">#&gt; Warning: replacing previous import 'ggplot2::scale_discrete_manual' by</span>
-<span class="co">#&gt; 'ggridges::scale_discrete_manual' when loading 'scdney'</span>
-<span class="co">#&gt; Warning: replacing previous import 'Matrix::cov2cor' by 'stats::cov2cor'</span>
-<span class="co">#&gt; when loading 'scdney'</span>
-<span class="co">#&gt; Warning: replacing previous import 'Matrix::toeplitz' by 'stats::toeplitz'</span>
-<span class="co">#&gt; when loading 'scdney'</span>
-<span class="co">#&gt; Warning: replacing previous import 'Matrix::update' by 'stats::update' when</span>
-<span class="co">#&gt; loading 'scdney'</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(scdney)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; Registered S3 methods overwritten by 'ggplot2':</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt;   method         from </span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt;   [.quosures     rlang</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt;   c.quosures     rlang</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;   print.quosures rlang</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">#&gt; Warning: replacing previous import 'ggplot2::scale_discrete_manual' by</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; 'ggridges::scale_discrete_manual' when loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt; Warning: replacing previous import 'Matrix::cov2cor' by 'stats::cov2cor'</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt; when loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; Warning: replacing previous import 'MAST::vcov' by 'stats::vcov' when</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt; loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt; Warning: replacing previous import 'MAST::filter' by 'stats::filter' when</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt; loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; Warning: replacing previous import 'Matrix::toeplitz' by 'stats::toeplitz'</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; when loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt; Warning: replacing previous import 'Matrix::update' by 'stats::update' when</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; loading 'scdney'</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; Warning: replacing previous import 'MAST::logLik' by 'stats::logLik' when</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; loading 'scdney'</span></a></code></pre></div>
 </div>
 <div id="data" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(<span class="st">"sim"</span>)
-exprsMat &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_exprsMat
-subject &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_subject
-cellTypes &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cellTypes
-cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
-
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(exprsMat)
-<span class="co">#&gt; [1] 500 260</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(subject, cellTypes)
-<span class="co">#&gt;                   cellTypes</span>
-<span class="co">#&gt; subject            n1 n4</span>
-<span class="co">#&gt;   Cond1_replicate1 24 21</span>
-<span class="co">#&gt;   Cond1_replicate2 30 27</span>
-<span class="co">#&gt;   Cond2_replicate1 57 18</span>
-<span class="co">#&gt;   Cond2_replicate2 66 17</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cond, cellTypes)
-<span class="co">#&gt;        cellTypes</span>
-<span class="co">#&gt; cond     n1  n4</span>
-<span class="co">#&gt;   Cond1  54  48</span>
-<span class="co">#&gt;   Cond2 123  35</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(<span class="st">"sim"</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">exprsMat &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_exprsMat</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">subject &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_subject</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">cellTypes &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cellTypes</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/dim">dim</a></span>(exprsMat)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; [1] 500 260</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(subject, cellTypes)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;                   cellTypes</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; subject            n1 n4</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   Cond1_replicate1 24 21</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;   Cond1_replicate2 30 27</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;   Cond2_replicate1 57 18</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;   Cond2_replicate2 66 17</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cond, cellTypes)</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;        cellTypes</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; cond     n1  n4</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;   Cond1  54  48</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;   Cond2 123  35</span></a></code></pre></div>
 </div>
 <div id="scdc-without-clustering" class="section level1">
 <h1 class="hasAnchor">
 <a href="#scdc-without-clustering" class="anchor"></a>scDC (without clustering)</h1>
 <p>Set <code>nboot = 50</code> for illustration.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_scDC_noClust &lt;-<span class="st"> </span><span class="kw"><a href="../reference/scDC_noClustering.html">scDC_noClustering</a></span>(cellTypes, subject, <span class="dt">calCI =</span> <span class="ot">TRUE</span>, 
-                                     <span class="dt">calCI_method =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"percentile"</span>, <span class="st">"BCa"</span>, <span class="st">"multinom"</span>),
-                                     <span class="dt">nboot =</span> <span class="dv">50</span>)
-<span class="co">#&gt; [1] "Calculating sample proportion..."</span>
-<span class="co">#&gt; [1] "Calculating bootstrap proportion..."</span>
-<span class="co">#&gt; [1] "Calculating percentile ..." "Calculating BCa ..."       </span>
-<span class="co">#&gt; [3] "Calculating multinom ..."  </span>
-<span class="co">#&gt; [1] "Calculating z0 ..."</span>
-<span class="co">#&gt; [1] "Calculating acc ..."</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">res_scDC_noClust &lt;-<span class="st"> </span><span class="kw"><a href="../reference/scDC_noClustering.html">scDC_noClustering</a></span>(cellTypes, subject, <span class="dt">calCI =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">                                     <span class="dt">calCI_method =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"percentile"</span>, <span class="st">"BCa"</span>, <span class="st">"multinom"</span>),</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">                                     <span class="dt">nboot =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] "Calculating sample proportion..."</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [1] "Calculating bootstrap proportion..."</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; [1] "Calculating percentile ..." "Calculating BCa ..."       </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [3] "Calculating multinom ..."  </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; [1] "Calculating z0 ..."</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; [1] "Calculating acc ..."</span></a></code></pre></div>
 <div id="visualisation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualisation" class="anchor"></a>Visualisation</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/barplotCI.html">barplotCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/barplotCI.html">barplotCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</a></code></pre></div>
 <p><img src="scDC_files/figure-html/unnamed-chunk-4-1.png" width="768"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))
-<span class="co">#&gt; Picking joint bandwidth of 0.0239</span>
-<span class="co">#&gt; Picking joint bandwidth of 0.0239</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; Picking joint bandwidth of 0.0213</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; Picking joint bandwidth of 0.0213</span></a></code></pre></div>
 <p><img src="scDC_files/figure-html/unnamed-chunk-5-1.png" width="768"></p>
 </div>
 <div id="fitting-glm" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fitting-glm" class="anchor"></a>Fitting GLM</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_GLM &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitGLM.html">fitGLM</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                                      <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>), 
-                  <span class="dt">pairwise =</span> <span class="ot">FALSE</span>)
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0151388</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
-<span class="co">#&gt; [1] "fitting GLM... 10"</span>
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00202052</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
-<span class="co">#&gt; [1] "fitting GLM... 20"</span>
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0127663</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
-<span class="co">#&gt; [1] "fitting GLM... 30"</span>
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00690679</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
-<span class="co">#&gt; [1] "fitting GLM... 40"</span>
-<span class="co">#&gt; [1] "fitting GLM... 50"</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">res_GLM &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitGLM.html">fitGLM</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">                                      <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>), </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">                  <span class="dt">pairwise =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.158966</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00332783</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; [1] "fitting GLM... 10"</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; [1] "fitting GLM... 20"</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-38" data-line-number="38"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">#&gt; [1] "fitting GLM... 30"</span></a>
+<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0127853</span></a>
+<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-43" data-line-number="43"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-44" data-line-number="44"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-45" data-line-number="45"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-46" data-line-number="46"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-47" data-line-number="47"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-48" data-line-number="48"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-49" data-line-number="49"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-50" data-line-number="50"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-51" data-line-number="51"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-52" data-line-number="52"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00284862</span></a>
+<a class="sourceLine" id="cb6-53" data-line-number="53"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-54" data-line-number="54"><span class="co">#&gt; [1] "fitting GLM... 40"</span></a>
+<a class="sourceLine" id="cb6-55" data-line-number="55"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-56" data-line-number="56"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-57" data-line-number="57"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-58" data-line-number="58"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-59" data-line-number="59"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-60" data-line-number="60"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-61" data-line-number="61"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00217135</span></a>
+<a class="sourceLine" id="cb6-62" data-line-number="62"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-63" data-line-number="63"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-64" data-line-number="64"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-65" data-line-number="65"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-66" data-line-number="66"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-67" data-line-number="67"><span class="co">#&gt; [1] "fitting GLM... 50"</span></a>
+<a class="sourceLine" id="cb6-68" data-line-number="68"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a></code></pre></div>
 <div id="summary-glm-results" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summary-glm-results" class="anchor"></a>Summary GLM results</h3>
 <div id="fixed-effect" class="section level4">
 <h4 class="hasAnchor">
 <a href="#fixed-effect" class="anchor"></a>Fixed effect</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)
-<span class="co">#&gt;                           estimate std.error  statistic        df</span>
-<span class="co">#&gt; (Intercept)              3.1766364 0.2021867 15.7114008 0.9065430</span>
-<span class="co">#&gt; cellTypesn4             -0.1421987 0.2929871 -0.4853411 0.5553828</span>
-<span class="co">#&gt; condcond2                0.9811378 0.2385603  4.1127457 0.9450767</span>
-<span class="co">#&gt; subjectCond1_replicate2  0.2363888 0.1994143  1.1854153 1.1998800</span>
-<span class="co">#&gt; subjectCond2_replicate1 -0.1013525 0.1593158 -0.6361736 1.1998800</span>
-<span class="co">#&gt; cellTypesn4:condcond2   -1.0794396 0.3994029 -2.7026332 0.5714735</span>
-<span class="co">#&gt;                            p.value</span>
-<span class="co">#&gt; (Intercept)             0.02454555</span>
-<span class="co">#&gt; cellTypesn4             0.70113140</span>
-<span class="co">#&gt; condcond2               0.11938361</span>
-<span class="co">#&gt; subjectCond1_replicate2 0.41965889</span>
-<span class="co">#&gt; subjectCond2_replicate1 0.62431043</span>
-<span class="co">#&gt; cellTypesn4:condcond2   0.19079656</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;                            estimate std.error  statistic        df</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; (Intercept)              3.14525157 0.2024800 15.5336380 0.9211340</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; cellTypesn4             -0.07422916 0.2809249 -0.2642313 0.6009755</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; condcond2                1.02617921 0.2354933  4.3575727 0.9802821</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; subjectCond1_replicate2  0.23638878 0.1994143  1.1854155 1.1998800</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; subjectCond2_replicate1 -0.10135249 0.1593158 -0.6361735 1.1998800</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; cellTypesn4:condcond2   -1.20811514 0.3754862 -3.2174685 0.6557051</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;                            p.value</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; (Intercept)             0.05016281</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; cellTypesn4             0.85451413</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; condcond2               0.14740081</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; subjectCond1_replicate2 0.41965882</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; subjectCond2_replicate1 0.62431047</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; cellTypesn4:condcond2   0.28619189</span></a></code></pre></div>
 </div>
 <div id="random-effect" class="section level4">
 <h4 class="hasAnchor">
 <a href="#random-effect" class="anchor"></a>Random effect</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)
-<span class="co">#&gt;                         estimate std.error  statistic        df    p.value</span>
-<span class="co">#&gt; (Intercept)            3.3018092 0.1687007 19.5719937 1.2957214 0.01194922</span>
-<span class="co">#&gt; cellTypesn4           -0.1422120 0.2929826 -0.4853939 0.9236613 0.69342565</span>
-<span class="co">#&gt; condcond2              0.8065714 0.1969060  4.0962264 1.3747009 0.09891140</span>
-<span class="co">#&gt; cellTypesn4:condcond2 -1.0794020 0.3993927 -2.7026081 0.9504796 0.16732621</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;                          estimate std.error  statistic        df</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; (Intercept)            3.27044994 0.1690539 19.3456087 1.3315312</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; cellTypesn4           -0.07427651 0.2809181 -0.2644063 0.9996391</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; condcond2              0.85157787 0.1931812  4.4081828 1.4543546</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; cellTypesn4:condcond2 -1.20802090 0.3754813 -3.2172600 1.0908619</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;                          p.value</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; (Intercept)           0.01356510</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; cellTypesn4           0.83545171</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; condcond2             0.08226393</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; cellTypesn4:condcond2 0.17495452</span></a></code></pre></div>
 </div>
 </div>
 </div>
@@ -208,35 +272,35 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <div id="scdc-with-clustering-not-run" class="section level1">
 <h1 class="hasAnchor">
 <a href="#scdc-with-clustering-not-run" class="anchor"></a>scDC (with clustering) (Not Run)</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_scDC_clust =<span class="st"> </span><span class="kw"><a href="../reference/scDC_noClustering.html">scDC_noClustering</a></span>(cellTypes, 
-                                   subject, <span class="dt">calCI =</span> <span class="ot">TRUE</span>, 
-                                   <span class="dt">calCI_method =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"percentile"</span>, <span class="st">"BCa"</span>, <span class="st">"multinom"</span>))</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">res_scDC_clust =<span class="st"> </span><span class="kw"><a href="../reference/scDC_noClustering.html">scDC_noClustering</a></span>(cellTypes, </a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">                                   subject, <span class="dt">calCI =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">                                   <span class="dt">calCI_method =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"percentile"</span>, <span class="st">"BCa"</span>, <span class="st">"multinom"</span>))</a></code></pre></div>
 <div id="visualisation-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#visualisation-1" class="anchor"></a>Visualisation</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/barplotCI.html">barplotCI</a></span>(res_scDC_clust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                            <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))<span class="er">)</span>
-<span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_clust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                            <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))<span class="er">)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/barplotCI.html">barplotCI</a></span>(res_scDC_clust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">                            <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))<span class="er">)</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_clust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">                            <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))<span class="er">)</span></a></code></pre></div>
 </div>
 <div id="fitting-glm-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fitting-glm-1" class="anchor"></a>Fitting GLM</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_GLM &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitGLM.html">fitGLM</a></span>(res_scDC_noClust,
-                  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
-                    <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>), <span class="dt">pairwise =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">res_GLM &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitGLM.html">fitGLM</a></span>(res_scDC_noClust,</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">                  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">                    <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>), <span class="dt">pairwise =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <div id="summary-glm-results-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summary-glm-results-1" class="anchor"></a>Summary GLM results</h3>
 <div id="fixed-effect-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#fixed-effect-1" class="anchor"></a>Fixed effect</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)</a></code></pre></div>
 </div>
 <div id="random-effect-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#random-effect-1" class="anchor"></a>Random effect</h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)</a></code></pre></div>
 </div>
 </div>
 </div>
@@ -244,65 +308,89 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <div id="sessioninfo" class="section level1">
 <h1 class="hasAnchor">
 <a href="#sessioninfo" class="anchor"></a>SessionInfo</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/sessionInfo">sessionInfo</a></span>()
-<span class="co">#&gt; R version 3.5.1 (2018-07-02)</span>
-<span class="co">#&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)</span>
-<span class="co">#&gt; Running under: macOS  10.14</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; locale:</span>
-<span class="co">#&gt; [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attached base packages:</span>
-<span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt; [1] scdney_0.1.1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;   [1] amap_0.8-16         minqa_1.2.4         colorspace_1.3-2   </span>
-<span class="co">#&gt;   [4] class_7.3-14        modeltools_0.2-22   ggridges_0.5.1     </span>
-<span class="co">#&gt;   [7] mclust_5.4.2        rprojroot_1.3-2     htmlTable_1.13.1   </span>
-<span class="co">#&gt;  [10] base64enc_0.1-3     fs_1.2.5            rstudioapi_0.9.0   </span>
-<span class="co">#&gt;  [13] mice_3.4.0          roxygen2_6.1.1      flexmix_2.3-14     </span>
-<span class="co">#&gt;  [16] prodlim_2018.04.18  manipulate_1.0.1    mvtnorm_1.0-8      </span>
-<span class="co">#&gt;  [19] lubridate_1.7.4     xml2_1.2.0          codetools_0.2-15   </span>
-<span class="co">#&gt;  [22] splines_3.5.1       doParallel_1.0.14   robustbase_0.93-2  </span>
-<span class="co">#&gt;  [25] knitr_1.20          Formula_1.2-3       nloptr_1.2.1       </span>
-<span class="co">#&gt;  [28] caret_6.0-81        clusteval_0.1       broom_0.5.0        </span>
-<span class="co">#&gt;  [31] kernlab_0.9-27      cluster_2.0.7-1     compiler_3.5.1     </span>
-<span class="co">#&gt;  [34] backports_1.1.3     assertthat_0.2.0    Matrix_1.2-14      </span>
-<span class="co">#&gt;  [37] lazyeval_0.2.1      acepack_1.4.1       htmltools_0.3.6    </span>
-<span class="co">#&gt;  [40] tools_3.5.1         igraph_1.2.4        gtable_0.2.0       </span>
-<span class="co">#&gt;  [43] glue_1.3.0.9000     reshape2_1.4.3      dplyr_0.8.0.1      </span>
-<span class="co">#&gt;  [46] Rcpp_1.0.0          trimcluster_0.1-2.1 pkgdown_1.3.0      </span>
-<span class="co">#&gt;  [49] nlme_3.1-137        iterators_1.0.10    fpc_2.1-11.1       </span>
-<span class="co">#&gt;  [52] timeDate_3043.102   gower_0.1.2         stringr_1.4.0      </span>
-<span class="co">#&gt;  [55] lme4_1.1-18-1       dendextend_1.9.0    DEoptimR_1.0-8     </span>
-<span class="co">#&gt;  [58] pan_1.6             MASS_7.3-50         scales_1.0.0       </span>
-<span class="co">#&gt;  [61] ipred_0.9-8         doSNOW_1.0.16       parallel_3.5.1     </span>
-<span class="co">#&gt;  [64] expm_0.999-2        RColorBrewer_1.1-2  yaml_2.2.0         </span>
-<span class="co">#&gt;  [67] scClust_0.2.0       memoise_1.1.0       gridExtra_2.3      </span>
-<span class="co">#&gt;  [70] ggplot2_3.1.0       rpart_4.1-13        latticeExtra_0.6-28</span>
-<span class="co">#&gt;  [73] stringi_1.3.1       desc_1.2.0          randomForest_4.6-14</span>
-<span class="co">#&gt;  [76] foreach_1.4.4       e1071_1.7-0.1       checkmate_1.9.1    </span>
-<span class="co">#&gt;  [79] boot_1.3-20         lava_1.6.3          rlang_0.3.1        </span>
-<span class="co">#&gt;  [82] pkgconfig_2.0.2     commonmark_1.5      prabclus_2.2-6     </span>
-<span class="co">#&gt;  [85] evaluate_0.12       lattice_0.20-35     purrr_0.3.1        </span>
-<span class="co">#&gt;  [88] labeling_0.3        recipes_0.1.4       htmlwidgets_1.3    </span>
-<span class="co">#&gt;  [91] tidyselect_0.2.5    plyr_1.8.4          magrittr_1.5       </span>
-<span class="co">#&gt;  [94] R6_2.4.0            snow_0.4-3          DescTools_0.99.28  </span>
-<span class="co">#&gt;  [97] generics_0.0.2      Hmisc_4.2-0         mitml_0.3-7        </span>
-<span class="co">#&gt; [100] pillar_1.3.1        whisker_0.3-2       foreign_0.8-71     </span>
-<span class="co">#&gt; [103] withr_2.1.2         survival_2.42-6     nnet_7.3-12        </span>
-<span class="co">#&gt; [106] tibble_2.0.1        crayon_1.3.4        jomo_2.6-7         </span>
-<span class="co">#&gt; [109] rmarkdown_1.11      viridis_0.5.1       grid_3.5.1         </span>
-<span class="co">#&gt; [112] data.table_1.12.0   ModelMetrics_1.2.2  digest_0.6.18      </span>
-<span class="co">#&gt; [115] diptest_0.75-7      tidyr_0.8.3         stats4_3.5.1       </span>
-<span class="co">#&gt; [118] munsell_0.5.0       viridisLite_0.3.0</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/sessionInfo">sessionInfo</a></span>()</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co">#&gt; R version 3.6.0 (2019-04-26)</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="co">#&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co">#&gt; Running under: macOS Mojave 10.14.5</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co">#&gt; Matrix products: default</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co">#&gt; locale:</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="co">#&gt; [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="co">#&gt; attached base packages:</span></a>
+<a class="sourceLine" id="cb14-14" data-line-number="14"><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16"><span class="co">#&gt; other attached packages:</span></a>
+<a class="sourceLine" id="cb14-17" data-line-number="17"><span class="co">#&gt; [1] scdney_0.1.4</span></a>
+<a class="sourceLine" id="cb14-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19"><span class="co">#&gt; loaded via a namespace (and not attached):</span></a>
+<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="co">#&gt;   [1] amap_0.8-17                 minqa_1.2.4                </span></a>
+<a class="sourceLine" id="cb14-21" data-line-number="21"><span class="co">#&gt;   [3] colorspace_1.4-1            class_7.3-15               </span></a>
+<a class="sourceLine" id="cb14-22" data-line-number="22"><span class="co">#&gt;   [5] ggridges_0.5.1              mclust_5.4.3               </span></a>
+<a class="sourceLine" id="cb14-23" data-line-number="23"><span class="co">#&gt;   [7] rprojroot_1.3-2             htmlTable_1.13.1           </span></a>
+<a class="sourceLine" id="cb14-24" data-line-number="24"><span class="co">#&gt;   [9] XVector_0.24.0              GenomicRanges_1.36.0       </span></a>
+<a class="sourceLine" id="cb14-25" data-line-number="25"><span class="co">#&gt;  [11] base64enc_0.1-3             fs_1.3.1                   </span></a>
+<a class="sourceLine" id="cb14-26" data-line-number="26"><span class="co">#&gt;  [13] rstudioapi_0.10             mice_3.5.0                 </span></a>
+<a class="sourceLine" id="cb14-27" data-line-number="27"><span class="co">#&gt;  [15] roxygen2_6.1.1              lubridate_1.7.4            </span></a>
+<a class="sourceLine" id="cb14-28" data-line-number="28"><span class="co">#&gt;  [17] prodlim_2018.04.18          manipulate_1.0.1           </span></a>
+<a class="sourceLine" id="cb14-29" data-line-number="29"><span class="co">#&gt;  [19] mvtnorm_1.0-10              xml2_1.2.0                 </span></a>
+<a class="sourceLine" id="cb14-30" data-line-number="30"><span class="co">#&gt;  [21] codetools_0.2-16            splines_3.6.0              </span></a>
+<a class="sourceLine" id="cb14-31" data-line-number="31"><span class="co">#&gt;  [23] doParallel_1.0.14           knitr_1.23                 </span></a>
+<a class="sourceLine" id="cb14-32" data-line-number="32"><span class="co">#&gt;  [25] Formula_1.2-3               nloptr_1.2.1               </span></a>
+<a class="sourceLine" id="cb14-33" data-line-number="33"><span class="co">#&gt;  [27] clusteval_0.1               caret_6.0-84               </span></a>
+<a class="sourceLine" id="cb14-34" data-line-number="34"><span class="co">#&gt;  [29] broom_0.5.2                 cluster_2.0.9              </span></a>
+<a class="sourceLine" id="cb14-35" data-line-number="35"><span class="co">#&gt;  [31] compiler_3.6.0              backports_1.1.4            </span></a>
+<a class="sourceLine" id="cb14-36" data-line-number="36"><span class="co">#&gt;  [33] assertthat_0.2.1            Matrix_1.2-17              </span></a>
+<a class="sourceLine" id="cb14-37" data-line-number="37"><span class="co">#&gt;  [35] lazyeval_0.2.2              acepack_1.4.1              </span></a>
+<a class="sourceLine" id="cb14-38" data-line-number="38"><span class="co">#&gt;  [37] htmltools_0.3.6             tools_3.6.0                </span></a>
+<a class="sourceLine" id="cb14-39" data-line-number="39"><span class="co">#&gt;  [39] igraph_1.2.4.1              gtable_0.3.0               </span></a>
+<a class="sourceLine" id="cb14-40" data-line-number="40"><span class="co">#&gt;  [41] glue_1.3.1                  GenomeInfoDbData_1.2.1     </span></a>
+<a class="sourceLine" id="cb14-41" data-line-number="41"><span class="co">#&gt;  [43] reshape2_1.4.3              dplyr_0.8.1                </span></a>
+<a class="sourceLine" id="cb14-42" data-line-number="42"><span class="co">#&gt;  [45] Rcpp_1.0.1                  Biobase_2.44.0             </span></a>
+<a class="sourceLine" id="cb14-43" data-line-number="43"><span class="co">#&gt;  [47] pkgdown_1.3.0               nlme_3.1-140               </span></a>
+<a class="sourceLine" id="cb14-44" data-line-number="44"><span class="co">#&gt;  [49] iterators_1.0.10            timeDate_3043.102          </span></a>
+<a class="sourceLine" id="cb14-45" data-line-number="45"><span class="co">#&gt;  [51] gower_0.2.1                 xfun_0.7                   </span></a>
+<a class="sourceLine" id="cb14-46" data-line-number="46"><span class="co">#&gt;  [53] stringr_1.4.0               lme4_1.1-21                </span></a>
+<a class="sourceLine" id="cb14-47" data-line-number="47"><span class="co">#&gt;  [55] dendextend_1.12.0           pan_1.6                    </span></a>
+<a class="sourceLine" id="cb14-48" data-line-number="48"><span class="co">#&gt;  [57] zlibbioc_1.30.0             MASS_7.3-51.4              </span></a>
+<a class="sourceLine" id="cb14-49" data-line-number="49"><span class="co">#&gt;  [59] scales_1.0.0                ipred_0.9-9                </span></a>
+<a class="sourceLine" id="cb14-50" data-line-number="50"><span class="co">#&gt;  [61] MAST_1.10.0                 doSNOW_1.0.16              </span></a>
+<a class="sourceLine" id="cb14-51" data-line-number="51"><span class="co">#&gt;  [63] parallel_3.6.0              SummarizedExperiment_1.14.0</span></a>
+<a class="sourceLine" id="cb14-52" data-line-number="52"><span class="co">#&gt;  [65] expm_0.999-4                RColorBrewer_1.1-2         </span></a>
+<a class="sourceLine" id="cb14-53" data-line-number="53"><span class="co">#&gt;  [67] SingleCellExperiment_1.6.0  yaml_2.2.0                 </span></a>
+<a class="sourceLine" id="cb14-54" data-line-number="54"><span class="co">#&gt;  [69] memoise_1.1.0               gridExtra_2.3              </span></a>
+<a class="sourceLine" id="cb14-55" data-line-number="55"><span class="co">#&gt;  [71] ggplot2_3.1.1               rpart_4.1-15               </span></a>
+<a class="sourceLine" id="cb14-56" data-line-number="56"><span class="co">#&gt;  [73] latticeExtra_0.6-28         stringi_1.4.3              </span></a>
+<a class="sourceLine" id="cb14-57" data-line-number="57"><span class="co">#&gt;  [75] S4Vectors_0.22.0            desc_1.2.0                 </span></a>
+<a class="sourceLine" id="cb14-58" data-line-number="58"><span class="co">#&gt;  [77] randomForest_4.6-14         foreach_1.4.4              </span></a>
+<a class="sourceLine" id="cb14-59" data-line-number="59"><span class="co">#&gt;  [79] e1071_1.7-2                 blme_1.0-4                 </span></a>
+<a class="sourceLine" id="cb14-60" data-line-number="60"><span class="co">#&gt;  [81] checkmate_1.9.3             BiocGenerics_0.30.0        </span></a>
+<a class="sourceLine" id="cb14-61" data-line-number="61"><span class="co">#&gt;  [83] boot_1.3-22                 BiocParallel_1.18.0        </span></a>
+<a class="sourceLine" id="cb14-62" data-line-number="62"><span class="co">#&gt;  [85] lava_1.6.5                  GenomeInfoDb_1.20.0        </span></a>
+<a class="sourceLine" id="cb14-63" data-line-number="63"><span class="co">#&gt;  [87] rlang_0.3.4                 pkgconfig_2.0.2            </span></a>
+<a class="sourceLine" id="cb14-64" data-line-number="64"><span class="co">#&gt;  [89] commonmark_1.7              matrixStats_0.54.0         </span></a>
+<a class="sourceLine" id="cb14-65" data-line-number="65"><span class="co">#&gt;  [91] bitops_1.0-6                evaluate_0.14              </span></a>
+<a class="sourceLine" id="cb14-66" data-line-number="66"><span class="co">#&gt;  [93] lattice_0.20-38             purrr_0.3.2                </span></a>
+<a class="sourceLine" id="cb14-67" data-line-number="67"><span class="co">#&gt;  [95] labeling_0.3                recipes_0.1.5              </span></a>
+<a class="sourceLine" id="cb14-68" data-line-number="68"><span class="co">#&gt;  [97] htmlwidgets_1.3             tidyselect_0.2.5           </span></a>
+<a class="sourceLine" id="cb14-69" data-line-number="69"><span class="co">#&gt;  [99] plyr_1.8.4                  magrittr_1.5               </span></a>
+<a class="sourceLine" id="cb14-70" data-line-number="70"><span class="co">#&gt; [101] R6_2.4.0                    IRanges_2.18.1             </span></a>
+<a class="sourceLine" id="cb14-71" data-line-number="71"><span class="co">#&gt; [103] snow_0.4-3                  DescTools_0.99.28          </span></a>
+<a class="sourceLine" id="cb14-72" data-line-number="72"><span class="co">#&gt; [105] generics_0.0.2              Hmisc_4.2-0                </span></a>
+<a class="sourceLine" id="cb14-73" data-line-number="73"><span class="co">#&gt; [107] mitml_0.3-7                 DelayedArray_0.10.0        </span></a>
+<a class="sourceLine" id="cb14-74" data-line-number="74"><span class="co">#&gt; [109] withr_2.1.2                 pillar_1.4.1               </span></a>
+<a class="sourceLine" id="cb14-75" data-line-number="75"><span class="co">#&gt; [111] foreign_0.8-71              survival_2.44-1.1          </span></a>
+<a class="sourceLine" id="cb14-76" data-line-number="76"><span class="co">#&gt; [113] abind_1.4-5                 RCurl_1.95-4.12            </span></a>
+<a class="sourceLine" id="cb14-77" data-line-number="77"><span class="co">#&gt; [115] nnet_7.3-12                 tibble_2.1.3               </span></a>
+<a class="sourceLine" id="cb14-78" data-line-number="78"><span class="co">#&gt; [117] crayon_1.3.4                jomo_2.6-8                 </span></a>
+<a class="sourceLine" id="cb14-79" data-line-number="79"><span class="co">#&gt; [119] rmarkdown_1.13              viridis_0.5.1              </span></a>
+<a class="sourceLine" id="cb14-80" data-line-number="80"><span class="co">#&gt; [121] grid_3.6.0                  data.table_1.12.2          </span></a>
+<a class="sourceLine" id="cb14-81" data-line-number="81"><span class="co">#&gt; [123] ModelMetrics_1.2.2          digest_0.6.19              </span></a>
+<a class="sourceLine" id="cb14-82" data-line-number="82"><span class="co">#&gt; [125] tidyr_0.8.3                 stats4_3.6.0               </span></a>
+<a class="sourceLine" id="cb14-83" data-line-number="83"><span class="co">#&gt; [127] munsell_0.5.0               viridisLite_0.3.0</span></a></code></pre></div>
 </div>
   </div>
 
