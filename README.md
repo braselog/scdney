@@ -262,9 +262,9 @@ cellTypes.reclassify <- multiAdaSampling(dat.pc, cellTypes, seed = 1, classifier
 End <- c("KDR", "LYVE1")
 
 # check examples
-idx <- which(cellTypes.reclassify != cellTypes)
+idx <- which(cellTypes.reclassify$final != cellTypes)
 library(dplyr)
-cbind(original=cellTypes[idx], reclassify=cellTypes.reclassify[idx]) %>%
+cbind(original=cellTypes[idx], reclassify=cellTypes.reclassify$final[idx]) %>%
   DT::datatable()
 
 c1 <- dat.processed[, which(cellTypes=="Endothelial Cell")]
