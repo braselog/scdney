@@ -279,10 +279,11 @@ cs <- rainbow(length(table(cellTypes)))
 #####
 par(mfrow=c(1,2))
 marker <- End[1]
-boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker)
+boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker, names=c("Reclassified", "Orignal", "Others", "Others", "Others", "Others"), las=2)
 points(1, dat.processed[marker, which(colnames(dat.processed) %in% "E13.5_C20")], pch=16, col="red", cex=2)
+
 marker <- End[2]
-boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker)
+boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker, names=c("Reclassified", "Orignal", "Others", "Others", "Others", "Others"), las=2)
 points(1, dat.processed[marker, which(colnames(dat.processed) %in% "E13.5_C20")], pch=16, col="red", cex=2)
 #####
 
