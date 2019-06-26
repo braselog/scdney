@@ -154,8 +154,8 @@
 <p><img src="scDC_files/figure-html/unnamed-chunk-4-1.png" width="768"></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; Picking joint bandwidth of 0.0213</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; Picking joint bandwidth of 0.0213</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; Picking joint bandwidth of 0.0227</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; Picking joint bandwidth of 0.0227</span></a></code></pre></div>
 <p><img src="scDC_files/figure-html/unnamed-chunk-5-1.png" width="768"></p>
 </div>
 <div id="fitting-glm" class="section level2">
@@ -164,33 +164,33 @@
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">res_GLM &lt;-<span class="st"> </span><span class="kw"><a href="../reference/fitGLM.html">fitGLM</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">                                      <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>), </a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">                  <span class="dt">pairwise =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.158966</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0080168</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00332783</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00217135</span></a>
 <a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
 <a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; [1] "fitting GLM... 10"</span></a>
 <a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.158938</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
 <a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; [1] "fitting GLM... 20"</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">#&gt; [1] "fitting GLM... 20"</span></a>
 <a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
@@ -199,10 +199,10 @@
 <a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-38" data-line-number="38"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">#&gt; [1] "fitting GLM... 30"</span></a>
-<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
-<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0127853</span></a>
-<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">#&gt; [1] "fitting GLM... 30"</span></a>
+<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-43" data-line-number="43"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-44" data-line-number="44"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-45" data-line-number="45"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
@@ -210,25 +210,27 @@
 <a class="sourceLine" id="cb6-47" data-line-number="47"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-48" data-line-number="48"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-49" data-line-number="49"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-50" data-line-number="50"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-51" data-line-number="51"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
-<a class="sourceLine" id="cb6-52" data-line-number="52"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00284862</span></a>
-<a class="sourceLine" id="cb6-53" data-line-number="53"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-50" data-line-number="50"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-51" data-line-number="51"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0253457</span></a>
+<a class="sourceLine" id="cb6-52" data-line-number="52"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-53" data-line-number="53"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-54" data-line-number="54"><span class="co">#&gt; [1] "fitting GLM... 40"</span></a>
 <a class="sourceLine" id="cb6-55" data-line-number="55"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-56" data-line-number="56"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-57" data-line-number="57"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-58" data-line-number="58"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-59" data-line-number="59"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
-<a class="sourceLine" id="cb6-60" data-line-number="60"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
-<a class="sourceLine" id="cb6-61" data-line-number="61"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00217135</span></a>
-<a class="sourceLine" id="cb6-62" data-line-number="62"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-58" data-line-number="58"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-59" data-line-number="59"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.158938</span></a>
+<a class="sourceLine" id="cb6-60" data-line-number="60"><span class="co">#&gt; (tol = 0.001, component 1)</span></a>
+<a class="sourceLine" id="cb6-61" data-line-number="61"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
+<a class="sourceLine" id="cb6-62" data-line-number="62"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-63" data-line-number="63"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-64" data-line-number="64"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-65" data-line-number="65"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-66" data-line-number="66"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a>
 <a class="sourceLine" id="cb6-67" data-line-number="67"><span class="co">#&gt; [1] "fitting GLM... 50"</span></a>
-<a class="sourceLine" id="cb6-68" data-line-number="68"><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-68" data-line-number="68"><span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span></a>
+<a class="sourceLine" id="cb6-69" data-line-number="69"><span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00266124</span></a>
+<a class="sourceLine" id="cb6-70" data-line-number="70"><span class="co">#&gt; (tol = 0.001, component 1)</span></a></code></pre></div>
 <div id="summary-glm-results" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summary-glm-results" class="anchor"></a>Summary GLM results</h3>
@@ -236,35 +238,30 @@
 <h4 class="hasAnchor">
 <a href="#fixed-effect" class="anchor"></a>Fixed effect</h4>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;                            estimate std.error  statistic        df</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; (Intercept)              3.14525157 0.2024800 15.5336380 0.9211340</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; cellTypesn4             -0.07422916 0.2809249 -0.2642313 0.6009755</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; condcond2                1.02617921 0.2354933  4.3575727 0.9802821</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; subjectCond1_replicate2  0.23638878 0.1994143  1.1854155 1.1998800</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; subjectCond2_replicate1 -0.10135249 0.1593158 -0.6361735 1.1998800</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; cellTypesn4:condcond2   -1.20811514 0.3754862 -3.2174685 0.6557051</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;                           estimate std.error  statistic        df</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; (Intercept)              3.1843245 0.1973564 16.1348896 0.9467866</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; cellTypesn4             -0.1574584 0.2838409 -0.5547416 0.5917720</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; condcond2                0.9879719 0.2299806  4.2958933 1.0109616</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt; subjectCond1_replicate2  0.2363888 0.1994143  1.1854155 1.1998800</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; subjectCond2_replicate1 -0.1013525 0.1593158 -0.6361736 1.1998800</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; cellTypesn4:condcond2   -1.1305310 0.3722281 -3.0371996 0.6705830</span></a>
 <a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;                            p.value</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; (Intercept)             0.05016281</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; cellTypesn4             0.85451413</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; condcond2               0.14740081</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; subjectCond1_replicate2 0.41965882</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; subjectCond2_replicate1 0.62431047</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; cellTypesn4:condcond2   0.28619189</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; (Intercept)             0.04527422</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; cellTypesn4             0.72080882</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; condcond2               0.14354144</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; subjectCond1_replicate2 0.41965884</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; subjectCond2_replicate1 0.62431044</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; cellTypesn4:condcond2   0.29133708</span></a></code></pre></div>
 </div>
 <div id="random-effect" class="section level4">
 <h4 class="hasAnchor">
 <a href="#random-effect" class="anchor"></a>Random effect</h4>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;                          estimate std.error  statistic        df</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; (Intercept)            3.27044994 0.1690539 19.3456087 1.3315312</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; cellTypesn4           -0.07427651 0.2809181 -0.2644063 0.9996391</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; condcond2              0.85157787 0.1931812  4.4081828 1.4543546</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; cellTypesn4:condcond2 -1.20802090 0.3754813 -3.2172600 1.0908619</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;                          p.value</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; (Intercept)           0.01356510</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; cellTypesn4           0.83545171</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt; condcond2             0.08226393</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt; cellTypesn4:condcond2 0.17495452</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt;                         estimate std.error  statistic        df    p.value</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; (Intercept)            3.3095437 0.1628687 20.3203227 1.3790274 0.01122267</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; cellTypesn4           -0.1575077 0.2838161 -0.5549639 0.9844048 0.67863175</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; condcond2              0.8133245 0.1864062  4.3631834 1.5195445 0.07780977</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; cellTypesn4:condcond2 -1.1303700 0.3721861 -3.0371098 1.1158784 0.18122124</span></a></code></pre></div>
 </div>
 </div>
 </div>
