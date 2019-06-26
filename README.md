@@ -83,7 +83,7 @@ mat <- GSE82187
 mat <- log2(mat+1)
 
 # set number of clusters (classes defined in colnames)
-nCs <- length(table(colnames(mat))
+nCs <- length(table(colnames(mat)))
 ```
 
 #### Part A. Clustering with different similarity metrics with `scClust`
