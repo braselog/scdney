@@ -11,5 +11,6 @@ os:
 
 env:
   - R_BIOC_VERSION: "3.9"
+  - R_BUILD_ARGS = "--no-build-vignettes"
 
 warnings_are_errors: false
