@@ -1,5 +1,15 @@
 # scdney - Single cell data integrative analysis
 
+<br />
+
+<!--
+<img src="https://github.com/SydneyBioX/scMerge/raw/master/inst/logo.png" align="right" width="200" />
+-->
+
+[![](https://img.shields.io/github/last-commit/SydneyBioX/scdney.svg)](https://github.com/SydneyBioX/scdney/commits/master)
+
+<br />
+
 `scdney` is a R package with collection of single cell RNA-sequencing (scRNA-seq) data analysis functions developed by team of <a href = "http://www.maths.usyd.edu.au/u/SMS/bioinformatics/">**Sydney Precision Bioinformatics Research Group**</a> at The University of Sydney.
 
 This package contains useful functions for analysis of scRNA-seq data including clustering, cell type identification, etc.
@@ -51,9 +61,11 @@ library(scdney)
 
 ### scClust
 
-![alt text](./img/scClust.jpg)
+See: Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. ***Briefings in Bioinformatics*** <a href="https://doi.org/10.1093/bib/bby076">[https://doi.org/10.1093/bib/bby076]</a>
 
-Current version of this package is implemented to run SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
+![alt text](img/scClust.jpg)
+
+Current version of this package is implemented to run a modified version of SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
 
 Available metrics include:
 
@@ -71,7 +83,7 @@ mat <- GSE82187
 mat <- log2(mat+1)
 
 # set number of clusters (classes defined in colnames)
-nCs <- length(table(colnames(mat))
+nCs <- length(table(colnames(mat)))
 ```
 
 #### Part A. Clustering with different similarity metrics with `scClust`
@@ -120,7 +132,7 @@ browseVignettes("scdney")
 ## Section 2 - Post hoc cell type classification
 
 ### scReClassify
-![alt text](./img/scReClassify.jpg)
+![alt text](img/scReClassify.jpg)
 
 
 Current version of this package is implemented to run with `svm` and `radomForest` classifiers.
@@ -250,9 +262,9 @@ cellTypes.reclassify <- multiAdaSampling(dat.pc, cellTypes, seed = 1, classifier
 End <- c("KDR", "LYVE1")
 
 # check examples
-idx <- which(cellTypes.reclassify != cellTypes)
+idx <- which(cellTypes.reclassify$final != cellTypes)
 library(dplyr)
-cbind(original=cellTypes[idx], reclassify=cellTypes.reclassify[idx]) %>%
+cbind(original=cellTypes[idx], reclassify=cellTypes.reclassify$final[idx]) %>%
   DT::datatable()
 
 c1 <- dat.processed[, which(cellTypes=="Endothelial Cell")]
@@ -267,10 +279,11 @@ cs <- rainbow(length(table(cellTypes)))
 #####
 par(mfrow=c(1,2))
 marker <- End[1]
-boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker)
+boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker, names=c("Reclassified", "Orignal", "Others", "Others", "Others", "Others"), las=2)
 points(1, dat.processed[marker, which(colnames(dat.processed) %in% "E13.5_C20")], pch=16, col="red", cex=2)
+
 marker <- End[2]
-boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker)
+boxplot(c1[marker,], c2[marker,], c3[marker,], c4[marker,], c5[marker,], c6[marker,], col=cs, main=marker, names=c("Reclassified", "Orignal", "Others", "Others", "Others", "Others"), las=2)
 points(1, dat.processed[marker, which(colnames(dat.processed) %in% "E13.5_C20")], pch=16, col="red", cex=2)
 #####
 
@@ -332,7 +345,7 @@ barplotCI(res_scDC_noClust, c("cond1","cond1","cond1","cond1",
 
 
 
-![alt text](./img/barplot.png)
+![alt text](img/barplot.png)
 
 
 
@@ -343,7 +356,7 @@ densityCI(res_scDC_noClust, c("cond1","cond1","cond1","cond1",
 #> Picking joint bandwidth of 0.0239
                               
 ```
-![alt text](./img/densityplot.png)
+![alt text](img/densityplot.png)
 
 ### Fitting GLM
 Cell count output from each bootstrap can be fitted using GLM, which analyse the significance of variables associated with cell counts. The GLM models are pooled using Rubin's rules to provide an overall estimates of statistics.
@@ -448,12 +461,4 @@ summary(res_GLM$pool_res_fixed)
 summary(res_GLM$pool_res_random)
 ```
 
-
-
-
-# References
-
-* **scClust**: 
-
-Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. ***Briefings in Bioinformatics*** <a href="https://doi.org/10.1093/bib/bby076">[https://doi.org/10.1093/bib/bby076]</a>
 
