@@ -204,19 +204,19 @@ ari01 <- ari02 <- ari03 <- ari04 <- ari05 <- c()
 base <- "svm"
 
 for(j in 1:10) {
-  final <- multiAdaSampling(dat.selected, cls.noisy01, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy01, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   ari01 <- c(ari01, mclust::adjustedRandIndex(lab, final))
   acc01 <- c(acc01, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy02, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy02, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   ari02 <- c(ari02, mclust::adjustedRandIndex(lab, final))
   acc02 <- c(acc02, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy03, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy03, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   ari03 <- c(ari03, mclust::adjustedRandIndex(lab, final))
   acc03 <- c(acc03, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy04, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy04, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   ari04 <- c(ari04, mclust::adjustedRandIndex(lab, final))
   acc04 <- c(acc04, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy05, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy05, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   ari05 <- c(ari05, mclust::adjustedRandIndex(lab, final))
   acc05 <- c(acc05, bAccuracy(lab, final))
 }
@@ -229,19 +229,19 @@ rfacc01 <- rfacc02 <- rfacc03 <- rfacc04 <- rfacc05 <- c()
 rfari01 <- rfari02 <- rfari03 <- rfari04 <- rfari05 <- c()
 base <- "rf"
 for(j in 1:10) {
-  final <- multiAdaSampling(dat.selected, cls.noisy01, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy01, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   rfari01 <- c(rfari01, mclust::adjustedRandIndex(lab, final))
   rfacc01 <- c(rfacc01, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy02, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy02, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   rfari02 <- c(rfari02, mclust::adjustedRandIndex(lab, final))
   rfacc02 <- c(rfacc02, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy03, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy03, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   rfari03 <- c(rfari03, mclust::adjustedRandIndex(lab, final))
   rfacc03 <- c(rfacc03, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy04, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy04, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   rfari04 <- c(rfari04, mclust::adjustedRandIndex(lab, final))
   rfacc04 <- c(rfacc04, bAccuracy(lab, final))
-  final <- multiAdaSampling(dat.selected, cls.noisy05, seed=j, classifier=base, percent=1, L=10)$final
+  final <- multiAdaSampling(dat.selected, cls.noisy05, seed=j, classifier=base, percent=1, L=10, iter = 5)$final
   rfari05 <- c(rfari05, mclust::adjustedRandIndex(lab, final))
   rfacc05 <- c(rfacc05, bAccuracy(lab, final))
 }
@@ -300,7 +300,7 @@ dat.pc <- matPCs(dat.processed, 0.7)
 dim(dat.pc)
 
 # run scReClassify
-cellTypes.reclassify <- multiAdaSampling(dat.pc, cellTypes, seed = 1, classifier = "svm", percent = 1, L = 10)
+cellTypes.reclassify <- multiAdaSampling(dat.pc, cellTypes, seed = 1, classifier = "svm", percent = 1, L = 10, iter=5)
 
 # Verification by marker genes
 End <- c("KDR", "LYVE1")

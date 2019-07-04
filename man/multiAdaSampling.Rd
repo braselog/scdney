@@ -22,6 +22,8 @@ multiAdaSampling(dat, lab)
 \item{prob}{logical flag to return sample's probabilities to each class.}
 
 \item{balance}{logical flag to down sample large cell types classes to the median of all class sizes.}
+
+\item{iter}{A number of iterations to perform adaSampling.}
 }
 \value{
 A final prediction, probabilities for each cell type and the model are returned as a list.
