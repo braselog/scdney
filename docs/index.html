@@ -39,7 +39,7 @@
 <li>
   <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
-
+     
   </a>
 </li>
 <li>
@@ -51,7 +51,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
-
+     
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -69,7 +69,7 @@
 </div>
 <!--/.navbar -->
 
-
+      
       </header><div class="row">
   <div class="contents col-md-9">
 
@@ -117,7 +117,7 @@
 <h3 class="hasAnchor">
 <a href="#scclust" class="anchor"></a>scClust</h3>
 <p>See: Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., &amp; Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. <strong><em>Briefings in Bioinformatics</em></strong> <a href="https://doi.org/10.1093/bib/bby076">[</a><a href="https://doi.org/10.1093/bib/bby076" class="uri">https://doi.org/10.1093/bib/bby076</a>]</p>
-<p><img src="../img/scClust.jpg" alt="alt text"></p>
+<p><img src="img/scClust.jpg" alt="alt text"></p>
 <p>Current version of this package is implemented to run a modified version of SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.</p>
 <p>Available metrics include:</p>
 <p>SIMLR - <code>"pearson"</code> correlation, <code>"spearman"</code> corelation and <code>"euclidean"</code> distance.</p>
@@ -168,7 +168,7 @@
 <div id="screclassify" class="section level3">
 <h3 class="hasAnchor">
 <a href="#screclassify" class="anchor"></a>scReClassify</h3>
-<p><img src="../img/scReClassify.jpg" alt="alt text"></p>
+<p><img src="img/scReClassify.jpg" alt="alt text"></p>
 <p>Current version of this package is implemented to run with <code>svm</code> and <code>radomForest</code> classifiers.</p>
 <div id="load-data-1" class="section level4">
 <h4 class="hasAnchor">
@@ -238,19 +238,19 @@
 <a class="sourceLine" id="cb11-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb11-8" data-line-number="8"><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</a>
 <a class="sourceLine" id="cb11-9" data-line-number="9">  final &lt;-<span class="st"> </span><span class="kw"><a href="reference/multiAdaSampling.html">multiAdaSampling</a></span>(dat.selected, cls.noisy01, <span class="dt">seed=</span>j, <span class="dt">classifier=</span>base, <span class="dt">percent=</span><span class="dv">1</span>, <span class="dt">L=</span><span class="dv">10</span>)<span class="op">$</span>final</a>
-<a class="sourceLine" id="cb11-10" data-line-number="10">  ari01 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari01, mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, final))</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">  ari01 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari01, mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-11" data-line-number="11">  acc01 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(acc01, <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-12" data-line-number="12">  final &lt;-<span class="st"> </span><span class="kw"><a href="reference/multiAdaSampling.html">multiAdaSampling</a></span>(dat.selected, cls.noisy02, <span class="dt">seed=</span>j, <span class="dt">classifier=</span>base, <span class="dt">percent=</span><span class="dv">1</span>, <span class="dt">L=</span><span class="dv">10</span>)<span class="op">$</span>final</a>
-<a class="sourceLine" id="cb11-13" data-line-number="13">  ari02 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari02, mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, final))</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">  ari02 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari02, mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-14" data-line-number="14">  acc02 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(acc02, <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-15" data-line-number="15">  final &lt;-<span class="st"> </span><span class="kw"><a href="reference/multiAdaSampling.html">multiAdaSampling</a></span>(dat.selected, cls.noisy03, <span class="dt">seed=</span>j, <span class="dt">classifier=</span>base, <span class="dt">percent=</span><span class="dv">1</span>, <span class="dt">L=</span><span class="dv">10</span>)<span class="op">$</span>final</a>
-<a class="sourceLine" id="cb11-16" data-line-number="16">  ari03 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari03, mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, final))</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">  ari03 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari03, mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-17" data-line-number="17">  acc03 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(acc03, <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-18" data-line-number="18">  final &lt;-<span class="st"> </span><span class="kw"><a href="reference/multiAdaSampling.html">multiAdaSampling</a></span>(dat.selected, cls.noisy04, <span class="dt">seed=</span>j, <span class="dt">classifier=</span>base, <span class="dt">percent=</span><span class="dv">1</span>, <span class="dt">L=</span><span class="dv">10</span>)<span class="op">$</span>final</a>
-<a class="sourceLine" id="cb11-19" data-line-number="19">  ari04 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari04, mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, final))</a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">  ari04 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari04, mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-20" data-line-number="20">  acc04 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(acc04, <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-21" data-line-number="21">  final &lt;-<span class="st"> </span><span class="kw"><a href="reference/multiAdaSampling.html">multiAdaSampling</a></span>(dat.selected, cls.noisy05, <span class="dt">seed=</span>j, <span class="dt">classifier=</span>base, <span class="dt">percent=</span><span class="dv">1</span>, <span class="dt">L=</span><span class="dv">10</span>)<span class="op">$</span>final</a>
-<a class="sourceLine" id="cb11-22" data-line-number="22">  ari05 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari05, mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, final))</a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">  ari05 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(ari05, mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-23" data-line-number="23">  acc05 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(acc05, <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, final))</a>
 <a class="sourceLine" id="cb11-24" data-line-number="24">}</a>
 <a class="sourceLine" id="cb11-25" data-line-number="25"></a>
@@ -274,9 +274,9 @@
 <a class="sourceLine" id="cb11-43" data-line-number="43">                  <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, cls.noisy03), <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, cls.noisy04),</a>
 <a class="sourceLine" id="cb11-44" data-line-number="44">                  <span class="kw"><a href="reference/bAccuracy.html">bAccuracy</a></span>(lab, cls.noisy05)), <span class="dt">col=</span><span class="st">"red3"</span>, <span class="dt">pch=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dt">cex=</span><span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb11-45" data-line-number="45"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/boxplot">boxplot</a></span>(ari01, ari02, ari03, ari04, ari05, <span class="dt">col=</span><span class="st">"lightblue"</span>, <span class="dt">main=</span><span class="st">"SVM ARI"</span>, <span class="dt">ylim=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.25</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb11-46" data-line-number="46"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/points">points</a></span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, cls.noisy01), mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, cls.noisy02),</a>
-<a class="sourceLine" id="cb11-47" data-line-number="47">                  mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, cls.noisy03), mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, cls.noisy04),</a>
-<a class="sourceLine" id="cb11-48" data-line-number="48">                  mclust<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mclust/topics/adjustedRandIndex">adjustedRandIndex</a></span>(lab, cls.noisy05)), <span class="dt">col=</span><span class="st">"red3"</span>, <span class="dt">pch=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dt">cex=</span><span class="dv">1</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb11-46" data-line-number="46"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/points">points</a></span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, cls.noisy01), mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, cls.noisy02),</a>
+<a class="sourceLine" id="cb11-47" data-line-number="47">                  mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, cls.noisy03), mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, cls.noisy04),</a>
+<a class="sourceLine" id="cb11-48" data-line-number="48">                  mclust<span class="op">::</span><span class="kw"><a href="https://mclust-org.github.io/mclust/reference/adjustedRandIndex.html">adjustedRandIndex</a></span>(lab, cls.noisy05)), <span class="dt">col=</span><span class="st">"red3"</span>, <span class="dt">pch=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dt">cex=</span><span class="dv">1</span>)</a></code></pre></div>
 </div>
 <div id="part-b----screclassify-mislabelled-cell-type-correction" class="section level4">
 <h4 class="hasAnchor">
@@ -369,13 +369,13 @@ The second argument is the label of each sample. In this data, there are 4 sampl
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="reference/barplotCI.html">barplotCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">                              </a></code></pre></div>
-<p><img src="../img/barplot.png" alt="alt text"></p>
+<p><img src="img/barplot.png" alt="alt text"></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="reference/densityCI.html">densityCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2">                              <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))</a>
 <a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co">#&gt; Picking joint bandwidth of 0.0239</span></a>
 <a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co">#&gt; Picking joint bandwidth of 0.0239</span></a>
 <a class="sourceLine" id="cb16-5" data-line-number="5">                              </a></code></pre></div>
-<p><img src="../img/densityplot.png" alt="alt text"></p>
+<p><img src="img/densityplot.png" alt="alt text"></p>
 </div>
 <div id="fitting-glm" class="section level3">
 <h3 class="hasAnchor">
@@ -501,7 +501,7 @@ The second argument is the label of each sample. In this data, there are 4 sampl
       </footer>
 </div>
 
-
+  
 
   </body>
 </html>
