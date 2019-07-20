@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>matPCs function — matPCs • scdney</title>
+<title>Testing scClassify model — predict_scClassify • scdney</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="matPCs function — matPCs" />
+<meta property="og:title" content="Testing scClassify model — predict_scClassify" />
 
-<meta property="og:description" content="Performs PCA on a given matrix" />
+<meta property="og:description" content="Testing scClassify model" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,54 +112,85 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>matPCs function</h1>
+    <h1>Testing scClassify model</h1>
     
-    <div class="hidden name"><code>matPCs.Rd</code></div>
+    <div class="hidden name"><code>predict_scClassify.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Performs PCA on a given matrix</p>
+    <p>Testing scClassify model</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>matPCs</span>(<span class='no'>dat</span>)</pre>
+    <pre class="usage"><span class='fu'>predict_scClassify</span>(<span class='no'>exprsMat_test</span>, <span class='no'>trainRes</span>, <span class='no'>cellTypes_test</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>10</span>,
+  <span class='kw'>prob_threshold</span> <span class='kw'>=</span> <span class='fl'>0.8</span>, <span class='kw'>cor_threshold_static</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>cor_threshold_high</span> <span class='kw'>=</span> <span class='fl'>0.7</span>, <span class='kw'>features</span> <span class='kw'>=</span> <span class='st'>"pearson"</span>,
+  <span class='kw'>algorithm</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"WKNN"</span>, <span class='st'>"KNN"</span>, <span class='st'>"DWKNN"</span>), <span class='kw'>similarity</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"pearson"</span>,
+  <span class='st'>"spearman"</span>, <span class='st'>"cosine"</span>, <span class='st'>"jaccard"</span>, <span class='st'>"kendall"</span>, <span class='st'>"weighted_rank"</span>,
+  <span class='st'>"manhattan"</span>), <span class='kw'>cutoff_method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"dynamic"</span>, <span class='st'>"static"</span>), <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='no'>T</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>Prediction model generated from "multiAdaSampling".</p></td>
+      <th>exprsMat_test</th>
+      <td><p>A list or a matrix indicates the expression matrices of the testing datasets</p></td>
     </tr>
     <tr>
-      <th>percentVar</th>
-      <td><p>A dimension reduced matrix.</p></td>
+      <th>trainRes</th>
+      <td><p>A vector of cell types</p></td>
     </tr>
     <tr>
-      <th>seed</th>
-      <td><p>seed for randomisation.</p></td>
+      <th>cellTypes_test</th>
+      <td><p>A list or a vector indicates cell types of the testing datasets (Optional).</p></td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td><p>An integer indicates the number of neighbour</p></td>
+    </tr>
+    <tr>
+      <th>prob_threshold</th>
+      <td><p>A numeric indicates the probability threshold for KNN/WKNN/DWKNN.</p></td>
+    </tr>
+    <tr>
+      <th>cor_threshold_static</th>
+      <td><p>A numeric indicates the static correlation threshold.</p></td>
+    </tr>
+    <tr>
+      <th>cor_threshold_high</th>
+      <td><p>A numeric indicates the highest correlation threshold</p></td>
+    </tr>
+    <tr>
+      <th>features</th>
+      <td><p>A vector indicates the method to select features, set as "limma" by default.
+This should be one or more of "limma", "DV", "DD", "chisq", "BI".</p></td>
+    </tr>
+    <tr>
+      <th>algorithm</th>
+      <td><p>A vector indicates the KNN method that are used, set as "WKNN" by default. This
+should be one or more of "WKNN", "KNN", "DWKNN".</p></td>
+    </tr>
+    <tr>
+      <th>similarity</th>
+      <td><p>A vector indicates the similarity measure that are used, set as "pearson" by default.
+This should be one or more of "pearson",  "spearman", "cosine", "jaccard", "kendall", "binomial", "weighted_rank","manhattan"</p></td>
+    </tr>
+    <tr>
+      <th>cutoff_method</th>
+      <td><p>A vector indicates the method to cutoff the correlation distribution. Set as "dynamic" by default.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>A logical input indicates whether the intermediate steps will be printed</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Dimensionally reduced matrix.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>This function performs PCA to reduce the dimension of the gene expression matrix limited from 10 to 20 PCs.</p>
+    <p>list of results</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='st'>"GSE87795_liver.development.data"</span>)
-
-<span class='no'>mat.expr</span> <span class='kw'>=</span> <span class='no'>GSE87795_liver.development.data</span>$<span class='no'>data</span>
-
-<span class='no'>mat.pc</span> <span class='kw'>=</span> <span class='fu'>matPCs</span>(<span class='no'>mat.expr</span>)
-
-<span class='co'># to capture at least 70% of overall variability in the dataset,</span>
-<span class='no'>mat.dim.reduct.70</span> <span class='kw'>=</span> <span class='fu'>matPCs</span>(<span class='no'>mat.expr</span>, <span class='fl'>0.7</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -167,14 +198,10 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
     <h2>Author</h2>
-    <p>Pengyi Yang, Taiyun Kim</p>
+    <p>Yingxin Lin</p>
   </div>
 </div>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>matPCs function — matPCs • scdney</title>
+<title>Training scClassify model — train_scClassify • scdney</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="matPCs function — matPCs" />
+<meta property="og:title" content="Training scClassify model — train_scClassify" />
 
-<meta property="og:description" content="Performs PCA on a given matrix" />
+<meta property="og:description" content="Training scClassify model" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,54 +112,75 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>matPCs function</h1>
+    <h1>Training scClassify model</h1>
     
-    <div class="hidden name"><code>matPCs.Rd</code></div>
+    <div class="hidden name"><code>train_scClassify.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Performs PCA on a given matrix</p>
+    <p>Training scClassify model</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>matPCs</span>(<span class='no'>dat</span>)</pre>
+    <pre class="usage"><span class='fu'>train_scClassify</span>(<span class='no'>exprsMat_train</span>, <span class='no'>cellTypes_train</span>, <span class='kw'>tree</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"HOPACH"</span>,
+  <span class='st'>"HC"</span>), <span class='kw'>selectFeatures</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"limma"</span>, <span class='st'>"DV"</span>, <span class='st'>"DD"</span>, <span class='st'>"chisq"</span>, <span class='st'>"BI"</span>),
+  <span class='kw'>topN</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>hopach_kmax</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>pSig</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='no'>F</span>,
+  <span class='kw'>ncores</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='no'>T</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>Prediction model generated from "multiAdaSampling".</p></td>
+      <th>exprsMat_train</th>
+      <td><p>A matrix of expression matrix of training dataset</p></td>
     </tr>
     <tr>
-      <th>percentVar</th>
-      <td><p>A dimension reduced matrix.</p></td>
+      <th>cellTypes_train</th>
+      <td><p>A vector of cell types of training dataset</p></td>
     </tr>
     <tr>
-      <th>seed</th>
-      <td><p>seed for randomisation.</p></td>
+      <th>tree</th>
+      <td><p>A vector indicates the method to build hierarchical tree, set as "HOPACH" by default.
+This should be one of "HOPACH" and "HC" (using stats::hclust).</p></td>
+    </tr>
+    <tr>
+      <th>selectFeatures</th>
+      <td><p>A vector indicates the method to select features, set as "limma" by default.
+This should be one or more of "limma", "DV", "DD", "chisq", "BI".</p></td>
+    </tr>
+    <tr>
+      <th>topN</th>
+      <td><p>An integer indicates the top number of features that are selected</p></td>
+    </tr>
+    <tr>
+      <th>hopach_kmax</th>
+      <td><p>An integer between 1 and 9 specifying the maximum number of
+children at each node in the HOPACH tree.</p></td>
+    </tr>
+    <tr>
+      <th>pSig</th>
+      <td><p>A numeric indicates the cutoff of pvalue for features</p></td>
+    </tr>
+    <tr>
+      <th>parallel</th>
+      <td><p>A logical input indicates whether the algorihms will run in parallel</p></td>
+    </tr>
+    <tr>
+      <th>ncores</th>
+      <td><p>An integer indicates the number of cores that are used</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>A logical input indicates whether the intermediate steps will be printed</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Dimensionally reduced matrix.</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>This function performs PCA to reduce the dimension of the gene expression matrix limited from 10 to 20 PCs.</p>
+    <p>list of results</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='st'>"GSE87795_liver.development.data"</span>)
-
-<span class='no'>mat.expr</span> <span class='kw'>=</span> <span class='no'>GSE87795_liver.development.data</span>$<span class='no'>data</span>
-
-<span class='no'>mat.pc</span> <span class='kw'>=</span> <span class='fu'>matPCs</span>(<span class='no'>mat.expr</span>)
-
-<span class='co'># to capture at least 70% of overall variability in the dataset,</span>
-<span class='no'>mat.dim.reduct.70</span> <span class='kw'>=</span> <span class='fu'>matPCs</span>(<span class='no'>mat.expr</span>, <span class='fl'>0.7</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -167,14 +188,10 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
     <h2>Author</h2>
-    <p>Pengyi Yang, Taiyun Kim</p>
+    <p>Yingxin Lin</p>
   </div>
 </div>
 

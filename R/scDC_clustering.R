@@ -15,7 +15,8 @@
 #'
 #' @import parallel
 #' @import reshape2
-#' @import DescTools
+#' @importFrom DescTools MultinomCI
+#' @importFrom stats qnorm pnorm quantile
 #' @export
 #' @examples
 #' ## Loading example data

@@ -290,6 +290,7 @@
 ## SIMLR
 ######################################################################
 
+
 "getSIMLR" <- function(mat, nCs, similarity = NULL, seed = 1, cores = 1, os = "other", ...) {
   # nCluster <- length(levels(factor(colnames(mat))))
   nCluster <- nCs

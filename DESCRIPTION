@@ -40,4 +40,12 @@ Imports:
     mice,
     Matrix,
     methods,
-    MAST
+    MAST,
+    cluster,
+    ggraph,
+    hopach,
+    limma,
+    minpack.lm,
+    mixtools,
+    pbmcapply,
+    proxy
