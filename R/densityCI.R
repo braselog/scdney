@@ -7,7 +7,7 @@
 #' @return Returns a data frame.
 #'
 #' @import ggplot2
-#' @import ggridges
+#' @importFrom ggridges stat_density_ridges
 #' @export
 #' @examples
 #' ## Loading example data
@@ -38,8 +38,8 @@ densityCI <- function(res, condition){
   conf_line$method <- factor(conf_line$method, levels = c("BCa", "percentile", "multinom"))
   n_method <- length(unique(conf_line$method))
 
-  g_density <- ggplot2::ggplot(df_toPlot, aes(x = value, y = subject, fill= cond)) +
-    ggridges::stat_density_ridges(alpha = 0.5) +
+  g_density <- ggplot2::ggplot(df_toPlot, aes(x = value, y = subject, fill = cond)) +
+    stat_density_ridges(alpha = 0.5) +
     ggplot2::geom_segment(data = conf_line, aes(x = conf_low, xend = conf_low, y = as.numeric(subject),
                                        yend = as.numeric(subject) + .9,
                                        color = method, linetype = method),
