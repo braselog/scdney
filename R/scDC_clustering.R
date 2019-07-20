@@ -16,7 +16,6 @@
 #' @import parallel
 #' @import reshape2
 #' @import DescTools
-#' @import stats
 #' @export
 #' @examples
 #' ## Loading example data

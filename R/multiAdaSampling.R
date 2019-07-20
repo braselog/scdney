@@ -10,6 +10,7 @@
 #' @param L Number of ensembles. Default to 10.
 #' @param prob logical flag to return sample's probabilities to each class.
 #' @param balance logical flag to down sample large cell types classes to the median of all class sizes.
+#' @param iter A number of iterations to perform adaSampling.
 #' @return A final prediction, probabilities for each cell type and the model are returned as a list.
 #' @usage multiAdaSampling(dat, lab)
 #' @author Pengyi Yang
@@ -25,7 +26,7 @@
 #'
 #' result = multiAdaSampling(mat.pc, cellTypes, seed = 1, classifier = "svm", percent = 1, L = 10)
 #' @export multiAdaSampling
-multiAdaSampling <- function(data, label, seed=1, classifier="svm", percent=1, L=10, prob=FALSE, balance=FALSE) {
+multiAdaSampling <- function(data, label, seed=1, classifier="svm", percent=1, L=10, prob=FALSE, balance=FALSE, iter=3) {
   models <- list()
   for(l in 1:L) {
     set.seed(seed+l)
@@ -34,7 +35,7 @@ multiAdaSampling <- function(data, label, seed=1, classifier="svm", percent=1, L
 
     model <- c()
     prob.mat <- c()
-    for (i in 1:5) {
+    for (i in 1:iter) {
 
       if (classifier == "rf") {
         model <- randomForest::randomForest(t(X), factor(Y), ntree = 100)
