@@ -63,7 +63,7 @@ library(scdney)
 
 See: Kim, T., Chen, I., Lin, Y., Wang, A., Yang, J., & Yang, P.† (2018) Impact of similarity metrics on single-cell RNA-seq data clustering. ***Briefings in Bioinformatics*** <a href="https://doi.org/10.1093/bib/bby076">[https://doi.org/10.1093/bib/bby076]</a>
 
-![alt text](img/scClust.jpg)
+![alt text](https://github.com/SydneyBioX/scdney/raw/master/img/scClust.jpg)
 
 Current version of this package is implemented to run a modified version of SIMLR (Wang et al, 2017) or k-means clustering methods with various similarity metrics.
 
@@ -132,7 +132,7 @@ browseVignettes("scdney")
 ## Section 2 - Post hoc cell type classification
 
 ### scReClassify
-![alt text](img/scReClassify.jpg)
+![alt text](https://github.com/SydneyBioX/scdney/raw/master/img/scReClassify.jpg)
 
 
 Current version of this package is implemented to run with `svm` and `radomForest` classifiers.
@@ -345,7 +345,7 @@ barplotCI(res_scDC_noClust, c("cond1","cond1","cond1","cond1",
 
 
 
-![alt text](img/barplot.png)
+![alt text](https://github.com/SydneyBioX/scdney/raw/master/img/barplot.png)
 
 
 
@@ -356,7 +356,7 @@ densityCI(res_scDC_noClust, c("cond1","cond1","cond1","cond1",
 #> Picking joint bandwidth of 0.0239
                               
 ```
-![alt text](img/densityplot.png)
+![alt text](https://github.com/SydneyBioX/scdney/raw/master/img/densityplot.png)
 
 ### Fitting GLM
 Cell count output from each bootstrap can be fitted using GLM, which analyse the significance of variables associated with cell counts. The GLM models are pooled using Rubin's rules to provide an overall estimates of statistics.

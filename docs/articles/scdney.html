@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">scdney</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@
       <h1>scdney</h1>
                         <h4 class="author">Taiyun Kim</h4>
             
-            <h4 class="date">21 July, 2019</h4>
+            <h4 class="date">21 August, 2019</h4>
       
       
       <div class="hidden name"><code>scdney.Rmd</code></div>
@@ -292,9 +292,9 @@ noisyCls &lt;-<span class="st"> </span><span class="cf">function</span>(dat, rho
   <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/length">length</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))) {
     <span class="co"># class label starts from 0</span>
     <span class="cf">if</span> (i <span class="op">!=</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/length">length</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))) {
-      cls.noisy[<span class="kw"><a href="https://www.rdocumentation.org/packages/dplyr/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which">which</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]) <span class="op">*</span><span class="st"> </span>rho))] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i<span class="op">+</span><span class="dv">1</span>]
+      cls.noisy[<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which">which</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]) <span class="op">*</span><span class="st"> </span>rho))] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i<span class="op">+</span><span class="dv">1</span>]
     } <span class="cf">else</span> {
-      cls.noisy[<span class="kw"><a href="https://www.rdocumentation.org/packages/dplyr/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which">which</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]) <span class="op">*</span><span class="st"> </span>rho))] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[<span class="dv">1</span>]
+      cls.noisy[<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/which">which</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">floor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sum">sum</a></span>(cls.truth <span class="op">==</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[i]) <span class="op">*</span><span class="st"> </span>rho))] &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/table">table</a></span>(cls.noisy))[<span class="dv">1</span>]
     }
   }
 
@@ -528,7 +528,7 @@ marker &lt;-<span class="st"> </span>Ery[<span class="dv">2</span>]
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/sessionInfo">sessionInfo</a></span>()</code></pre></div>
 <pre><code>## R version 3.6.1 (2019-07-05)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Mojave 10.14.5
+## Running under: macOS Mojave 10.14.6
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib

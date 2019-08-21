@@ -62,7 +62,7 @@ table(scClassify_res$testRes$wang$pearson_WKNN_limma$predRes, wang_cellTypes)
 ```
 
 
-## Ensemble Classify
+## Ensemble scClassify
 
 ```{r}
 scClassify_res_ensemble <- scClassify(exprsMat_train = as.matrix(exprsMat_xin_subset),

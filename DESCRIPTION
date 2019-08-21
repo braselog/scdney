@@ -1,7 +1,7 @@
 Package: scdney
 Type: Package
 Title: Single cell data integrative analysis
-Version: 0.1.4
+Version: 0.1.5
 Author: Taiyun Kim, Yingxin Lin, Pengyi Yang, Shila Ghazanfar
 Maintainer: Taiyun Kim <taiyun.kim@sydney.edu.au>
 Description: A collection of single cell RNA-sequencing data analysis functions including normalisation, mixture modelling, clustering and cell type correction.

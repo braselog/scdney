@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">scdney</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       <h1>scClassify</h1>
                         <h4 class="author">Yingxin Lin</h4>
             
-            <h4 class="date">2019-07-21</h4>
+            <h4 class="date">2019-08-21</h4>
       
       
       <div class="hidden name"><code>scClassify.Rmd</code></div>
@@ -134,9 +134,9 @@ exprsMat_wang_subset &lt;-<span class="st"> </span>scClassify_example<span class
 <span class="co">#&gt;   gamma                 0     0    0     0      0    19        0</span>
 <span class="co">#&gt;   unassigned            5     0    0     0     75     0       45</span></code></pre></div>
 </div>
-<div id="ensemble-classify" class="section level2">
+<div id="ensemble-scclassify" class="section level2">
 <h2 class="hasAnchor">
-<a href="#ensemble-classify" class="anchor"></a>Ensemble Classify</h2>
+<a href="#ensemble-scclassify" class="anchor"></a>Ensemble scClassify</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scClassify_res_ensemble &lt;-<span class="st"> </span><span class="kw"><a href="../reference/scClassify.html">scClassify</a></span>(<span class="dt">exprsMat_train =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">as.matrix</a></span>(exprsMat_xin_subset),
                       <span class="dt">cellTypes_train =</span> xin_cellTypes,
                       <span class="dt">exprsMat_test =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(<span class="dt">wang =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">as.matrix</a></span>(exprsMat_wang_subset)),
@@ -153,10 +153,10 @@ exprsMat_wang_subset &lt;-<span class="st"> </span>scClassify_example<span class
 <span class="co">#&gt;                   wang_cellTypes</span>
 <span class="co">#&gt;                    acinar alpha beta delta ductal gamma stellate</span>
 <span class="co">#&gt;   alpha                 0   206    0     0      0     2        1</span>
-<span class="co">#&gt;   unassigned            5     0    0     0     81     0       44</span>
+<span class="co">#&gt;   beta_delta_gamma      0     0    0     0     21     0        0</span>
 <span class="co">#&gt;   delta                 0     0    0    10      0     0        0</span>
-<span class="co">#&gt;   beta_delta_gamma      0     0    0     0     13     0        0</span>
-<span class="co">#&gt;   beta                  0     0  118     0      2     0        0</span>
+<span class="co">#&gt;   beta                  0     0  118     0      4     0        0</span>
+<span class="co">#&gt;   unassigned            5     0    0     0     71     0       44</span>
 <span class="co">#&gt;   gamma                 0     0    0     0      0    19        0</span></code></pre></div>
 </div>
 </div>
@@ -201,7 +201,7 @@ res<span class="op">$</span>plot</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/sessionInfo">sessionInfo</a></span>()
 <span class="co">#&gt; R version 3.6.1 (2019-07-05)</span>
 <span class="co">#&gt; Platform: x86_64-apple-darwin15.6.0 (64-bit)</span>
-<span class="co">#&gt; Running under: macOS Mojave 10.14.5</span>
+<span class="co">#&gt; Running under: macOS Mojave 10.14.6</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Matrix products: default</span>
 <span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib</span>
@@ -300,7 +300,7 @@ res<span class="op">$</span>plot</code></pre></div>
 <li>
 <a href="#scclassify">scClassify</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#non-ensemble-scclassify">Non-ensemble scClassify</a></li>
-      <li><a href="#ensemble-classify">Ensemble Classify</a></li>
+      <li><a href="#ensemble-scclassify">Ensemble scClassify</a></li>
       </ul>
 </li>
       <li>
