@@ -6,7 +6,7 @@
 <img src="https://github.com/SydneyBioX/scMerge/raw/master/inst/logo.png" align="right" width="200" />
 -->
 
-[![](https://img.shields.io/github/last-commit/SydneyBioX/scdney.svg)](https://github.com/SydneyBioX/scdney/commits/master)
+[![](https://img.shields.io/github/last-commit/SydneyBioX/scdney.svg)](https://github.com/SydneyBioX/scdney/commits/master) [![Travis build status](https://travis-ci.org/SydneyBioX/scdney.svg?branch=master)](https://travis-ci.org/SydneyBioX/scdney)
 
 <br />
 

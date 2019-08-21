@@ -6,7 +6,6 @@ r: bioc-release
 dist: trusty
 
 os:
-  - linux
   - osx
 
 env:
