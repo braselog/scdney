@@ -79,7 +79,7 @@
       <h1>scDC: single cell differential composition analysis</h1>
                         <h4 class="author">Yingxin Lin</h4>
             
-            <h4 class="date">2019-08-21</h4>
+            <h4 class="date">2019-08-22</h4>
       
       
       <div class="hidden name"><code>scDC.Rmd</code></div>
@@ -138,8 +138,8 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <p><img src="scDC_files/figure-html/unnamed-chunk-4-1.png" width="768"></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/densityCI.html">densityCI</a></span>(res_scDC_noClust, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,<span class="st">"cond1"</span>,
                               <span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>,<span class="st">"cond2"</span>))
-<span class="co">#&gt; Picking joint bandwidth of 0.0225</span>
-<span class="co">#&gt; Picking joint bandwidth of 0.0225</span></code></pre></div>
+<span class="co">#&gt; Picking joint bandwidth of 0.0224</span>
+<span class="co">#&gt; Picking joint bandwidth of 0.0224</span></code></pre></div>
 <p><img src="scDC_files/figure-html/unnamed-chunk-5-1.png" width="768"></p>
 </div>
 <div id="fitting-glm" class="section level2">
@@ -153,7 +153,9 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
+<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00334757</span>
+<span class="co">#&gt; (tol = 0.001, component 1)</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
@@ -165,19 +167,21 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00508142</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; [1] "fitting GLM... 20"</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
+<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00218919</span>
+<span class="co">#&gt; (tol = 0.001, component 1)</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
+<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0023723</span>
+<span class="co">#&gt; (tol = 0.001, component 1)</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
@@ -185,23 +189,21 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.0253206</span>
+<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00236244</span>
 <span class="co">#&gt; (tol = 0.001, component 1)</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; [1] "fitting GLM... 40"</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
-<span class="co">#&gt; Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl =</span>
-<span class="co">#&gt; control$checkConv, : Model failed to converge with max|grad| = 0.00218806</span>
-<span class="co">#&gt; (tol = 0.001, component 1)</span>
+<span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
 <span class="co">#&gt; boundary (singular) fit: see ?isSingular</span>
@@ -217,34 +219,34 @@ cond &lt;-<span class="st"> </span>sim<span class="op">$</span>sim_cond
 <a href="#fixed-effect" class="anchor"></a>Fixed effect</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_fixed)
 <span class="co">#&gt;                            estimate std.error  statistic        df</span>
-<span class="co">#&gt; (Intercept)              3.15413807 0.1964143 16.0585951 0.9732650</span>
-<span class="co">#&gt; cellTypesn4             -0.09101547 0.2680019 -0.3396075 0.6598746</span>
-<span class="co">#&gt; condcond2                1.01268012 0.2321879  4.3614681 1.0051170</span>
-<span class="co">#&gt; subjectCond1_replicate2  0.23638878 0.1994143  1.1854155 1.1998800</span>
+<span class="co">#&gt; (Intercept)              3.14776218 0.2113221 14.8955627 0.8449352</span>
+<span class="co">#&gt; cellTypesn4             -0.08290908 0.3050672 -0.2717732 0.5113376</span>
+<span class="co">#&gt; condcond2                1.02419994 0.2435474  4.2053410 0.9158183</span>
+<span class="co">#&gt; subjectCond1_replicate2  0.23638878 0.1994143  1.1854152 1.1998800</span>
 <span class="co">#&gt; subjectCond2_replicate1 -0.10135249 0.1593158 -0.6361736 1.1998800</span>
-<span class="co">#&gt; cellTypesn4:condcond2   -1.17116306 0.3773323 -3.1037978 0.6455669</span>
+<span class="co">#&gt; cellTypesn4:condcond2   -1.19845944 0.3876278 -3.0917789 0.6152805</span>
 <span class="co">#&gt;                            p.value</span>
-<span class="co">#&gt; (Intercept)             0.04243676</span>
-<span class="co">#&gt; cellTypesn4             0.81146423</span>
-<span class="co">#&gt; condcond2               0.14252249</span>
-<span class="co">#&gt; subjectCond1_replicate2 0.41965883</span>
-<span class="co">#&gt; subjectCond2_replicate1 0.62431042</span>
-<span class="co">#&gt; cellTypesn4:condcond2   0.29656118</span></code></pre></div>
+<span class="co">#&gt; (Intercept)             0.06353371</span>
+<span class="co">#&gt; cellTypesn4             0.85747631</span>
+<span class="co">#&gt; condcond2               0.16595248</span>
+<span class="co">#&gt; subjectCond1_replicate2 0.41965890</span>
+<span class="co">#&gt; subjectCond2_replicate1 0.62431044</span>
+<span class="co">#&gt; cellTypesn4:condcond2   0.30912784</span></code></pre></div>
 </div>
 <div id="random-effect" class="section level4">
 <h4 class="hasAnchor">
 <a href="#random-effect" class="anchor"></a>Random effect</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(res_GLM<span class="op">$</span>pool_res_random)
-<span class="co">#&gt;                          estimate std.error  statistic       df</span>
-<span class="co">#&gt; (Intercept)            3.27932059 0.1617415 20.2750773 1.441107</span>
-<span class="co">#&gt; cellTypesn4           -0.09101401 0.2680008 -0.3396035 1.097796</span>
-<span class="co">#&gt; condcond2              0.83809398 0.1891364  4.4311628 1.509147</span>
-<span class="co">#&gt; cellTypesn4:condcond2 -1.17115780 0.3773325 -3.1037822 1.073936</span>
-<span class="co">#&gt;                           p.value</span>
-<span class="co">#&gt; (Intercept)           0.009586436</span>
-<span class="co">#&gt; cellTypesn4           0.787589159</span>
-<span class="co">#&gt; condcond2             0.076951683</span>
-<span class="co">#&gt; cellTypesn4:condcond2 0.184444189</span></code></pre></div>
+<span class="co">#&gt;                          estimate std.error  statistic        df</span>
+<span class="co">#&gt; (Intercept)            3.27292521 0.1795512 18.2283695 1.1784621</span>
+<span class="co">#&gt; cellTypesn4           -0.08290988 0.3050661 -0.2717768 0.8502977</span>
+<span class="co">#&gt; condcond2              0.84964205 0.2029239  4.1869988 1.3159356</span>
+<span class="co">#&gt; cellTypesn4:condcond2 -1.19845605 0.3876263 -3.0917822 1.0234548</span>
+<span class="co">#&gt;                          p.value</span>
+<span class="co">#&gt; (Intercept)           0.02172233</span>
+<span class="co">#&gt; cellTypesn4           0.83687688</span>
+<span class="co">#&gt; condcond2             0.10251563</span>
+<span class="co">#&gt; cellTypesn4:condcond2 0.19453232</span></code></pre></div>
 </div>
 </div>
 </div>
